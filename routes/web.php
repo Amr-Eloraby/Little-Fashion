@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use Psy\Output\Theme;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ThemeController;
@@ -7,10 +8,6 @@ use App\Http\Controllers\ProfileController;
 
 Route::get('/', function () {
     return view('welcome');
-});
-
-Route::get('/dashboard1', function () {
-    return view('dashboard.index-dashboard');
 });
 
 Route::controller(ThemeController::class)->name('theme.')->group(function () {
@@ -24,7 +21,11 @@ Route::controller(ThemeController::class)->name('theme.')->group(function () {
     Route::get('/sign-up', 'signUp')->name('sign-up');
 });
 
-
+Route::controller(DashboardController::class)->name('dashboard.')->group(function () {
+    Route::get('/dashboard1', 'index')->name('index');
+    Route::get('/dashboard1/create', 'create')->name('create');
+    Route::get('/dashboard1/show', 'show')->name('show');
+});
 
 
 Route::get('/dashboard', function () {
