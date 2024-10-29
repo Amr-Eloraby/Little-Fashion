@@ -23,8 +23,11 @@ Route::controller(ThemeController::class)->name('theme.')->group(function () {
 
 Route::controller(DashboardController::class)->name('dashboard.')->group(function () {
     Route::get('/dashboard1', 'index')->name('index');
-    Route::get('/dashboard1/create', 'create')->name('create');
-    Route::get('/dashboard1/show', 'show')->name('show');
+    Route::get('/dashboard1/product/create', 'productCreate')->name('product.create');
+    Route::get('/dashboard1/product/show', 'productShow')->name('product.show');
+    Route::get('/dashboard1/category/create', 'categoryCreate')->name('category.create');
+    Route::post('/dashboard1/category/store', 'categoryStore')->name('category.store');
+    Route::get('/dashboard1/category/show', 'categoryShow')->name('category.show');
 });
 
 
