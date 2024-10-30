@@ -80,7 +80,7 @@
                 </a>
                 <div id="collapsethree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="cards.html">Show</a>
+                        <a class="collapse-item" href="{{route('dashboard.contact.show')}}">Show</a>
                     </div>
                 </div>
             </li>
@@ -153,7 +153,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>Copyright &copy; Your Website 2024</span>
                     </div>
                 </div>
             </footer>

@@ -1,3 +1,6 @@
+@php
+    $categories = App\Models\Category::all();
+@endphp
 <nav class="navbar navbar-expand-lg">
     <div class="container">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -31,9 +34,11 @@
                         Products
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{ route('theme.product') }}">Men</a></li>
-                        <li><a class="dropdown-item" href="{{ route('theme.product') }}">Women</a></li>
-                        <li><a class="dropdown-item" href="{{ route('theme.product') }}">Something else here</a></li>
+                        @if (count($categories) > 0)
+                            @foreach ($categories as $category )
+                            <li><a class="dropdown-item" href="{{ route('theme.product',['id' => $category->id]) }}">{{$category->name}}</a></li>
+                            @endforeach
+                        @endif
                     </ul>
                 </li>
 

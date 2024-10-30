@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
+use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class ThemeController extends Controller
@@ -16,7 +19,9 @@ class ThemeController extends Controller
     }
 
     public function product(){
-        return view('theme.product');
+        // $category=Category::where('id',$id);
+        $products=Product::latest()->paginate(9);
+        return view('theme.product',compact('products'));
     }
 
     public function singelProduct(){
@@ -29,6 +34,16 @@ class ThemeController extends Controller
 
     public function contact(){
         return view('theme.contact');
+    }
+
+    public function contactStore(Request $request){
+        $data=$request->validate([
+            'name'=>'required',
+            'email'=>'required',
+            'description'=>'required',
+        ]);
+        Contact::create($data); 
+        return back()->with('status-contact-create','Your Message Sent Successfully');
     }
 
     public function signIn(){
