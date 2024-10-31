@@ -41,7 +41,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
                         <a class="collapse-item" href="{{ route('dashboard.category.create') }}">Create</a>
-                        <a class="collapse-item" href="{{ route('dashboard.category.show') }}">Show</a>
+                        <a class="collapse-item" href="{{ route('dashboard.category.index') }}">Show</a>
                     </div>
                 </div>
             </li>
@@ -54,7 +54,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
                         <a class="collapse-item" href="{{ route('dashboard.product.create') }}">Create</a>
-                        <a class="collapse-item" href="{{ route('dashboard.product.show') }}">Show</a>
+                        <a class="collapse-item" href="{{route('dashboard.product.index')}}}">Show</a>
                     </div>
                 </div>
             </li>
