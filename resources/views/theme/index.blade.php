@@ -17,7 +17,7 @@
                                 <p class="lead text-white mt-lg-3 mb-lg-5">Little fashion template comes with total 8 HTML
                                     pages provided by Tooplate website.</p>
 
-                                <a href="about.html" class="btn custom-btn">Learn more about us</a>
+                                <a href="{{route('theme.story')}}" class="btn custom-btn">Learn more about us</a>
                             </div>
                         </div>
                     </div>
@@ -37,7 +37,7 @@
                                 <p class="lead text-white mt-lg-3 mb-lg-5">Please share this Little Fashion template to your
                                     friends. Thank you for supporting us.</p>
 
-                                <a href="product.html" class="btn custom-btn">Explore products</a>
+                                <a href="{{route('theme.product')}}" class="btn custom-btn">Explore products</a>
                             </div>
                         </div>
                     </div>
@@ -57,7 +57,7 @@
                                 <p class="lead text-white mt-lg-3 mb-lg-5">Tooplate is one of the best HTML CSS template
                                     websites for everyone.</p>
 
-                                <a href="contact.html" class="btn custom-btn">Work with us</a>
+                                <a href="{{route('theme.contact')}}" class="btn custom-btn">Work with us</a>
                             </div>
                         </div>
                     </div>
@@ -113,7 +113,7 @@
 
 
                                             <div class="mt-2 mt-lg-auto">
-                                                <a href="about.html" class="custom-link mb-2">
+                                                <a href="{{route('theme.story')}}" class="custom-link mb-2">
                                                     Learn more about us
                                                     <i class="bi-arrow-right ms-2"></i>
                                                 </a>
@@ -146,7 +146,7 @@
                                             <p>Custom work is branding, web design, UI/UX design</p>
 
                                             <div class="mt-2 mt-lg-auto">
-                                                <a href="contact.html" class="custom-link mb-2">
+                                                <a href="{{route('theme.contact')}}" class="custom-link mb-2">
                                                     Work with us
                                                     <i class="bi-arrow-right ms-2"></i>
                                                 </a>
@@ -179,7 +179,7 @@
                             <p class="lead mb-4">Credits go to Unsplash and FreePik websites for images used in this Little
                                 Fashion by Tooplate.</p>
 
-                            <a href="products.html" class="custom-link">
+                            <a href="{{route('theme.product')}}" class="custom-link">
                                 Explore Products
                                 <i class="bi-arrow-right ms-2"></i>
                             </a>
@@ -198,77 +198,30 @@
                         <h2 class="mb-5">Featured Products</h2>
                     </div>
 
-                    <div class="col-lg-4 col-12 mb-3">
-                        <div class="product-thumb">
-                            <a href="{{ route('theme.singel-product') }}">
-                                <img src="{{ asset('assets') }}/images/product/evan-mcdougall-qnh1odlqOmk-unsplash.jpeg"
-                                    class="img-fluid product-image" alt="">
-                            </a>
-
-
-
-                            <div class="product-info d-flex">
-                                <div>
-                                    <h5 class="product-title mb-0">
-                                        <a href="{{ route('theme.singel-product') }}" class="product-title-link">Tree
-                                            pot</a>
-                                    </h5>
-
-                                    <p class="product-p">Original package design from house</p>
+                    @if (count($products) > 0)
+                        @foreach ($products as $product )
+                        <div class="col-lg-4 col-12 mb-3">
+                            <div class="product-thumb">
+                                <a href="{{ route('theme.singel-product') }}">
+                                    <img style="width: 400px; height: 300px;"
+                                            src="{{ asset("storage/products/$product->image") }}"
+                                            class="img-fluid product-image" alt="">
+                                </a>
+                                 <div class="product-info d-flex">
+                                    <div>
+                                        <h5 class="product-title mb-0">
+                                            <a href="{{ route('theme.singel-product') }}" class="product-title-link">{{$product->name}}</a>
+                                        </h5>
+    
+                                        <p class="product-p">{{$product->description}}</p>
+                                    </div>
+    
+                                    <small class="product-price text-muted ms-auto mt-auto mb-5">${{$product->price}}</small>
                                 </div>
-
-                                <small class="product-price text-muted ms-auto mt-auto mb-5">$25</small>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="col-lg-4 col-12 mb-3">
-                        <div class="product-thumb">
-                            <a href="{{ route('theme.singel-product') }}">
-                                <img src="{{ asset('assets') }}/images/product/jordan-nix-CkCUvwMXAac-unsplash.jpeg"
-                                    class="img-fluid product-image" alt="">
-                            </a>
-
-                            <div class="product-info d-flex">
-                                <div>
-                                    <h5 class="product-title mb-0">
-                                        <a href="{{ route('theme.singel-product') }}" class="product-title-link">Fashion
-                                            Set</a>
-                                    </h5>
-
-                                    <p class="product-p">Costume Package</p>
-                                </div>
-
-                                <small class="product-price text-muted ms-auto mt-auto mb-5">$35</small>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-12 mb-3">
-                        <div class="product-thumb">
-                            <a href="{{ route('theme.singel-product') }}">
-                                <img src="{{ asset('assets') }}/images/product/nature-zen-3Dn1BZZv3m8-unsplash.jpeg"
-                                    class="img-fluid product-image" alt="">
-                            </a>
-
-                            <div class="product-top d-flex">
-                                <a href="#" class="bi-heart-fill product-icon ms-auto"></a>
-                            </div>
-
-                            <div class="product-info d-flex">
-                                <div>
-                                    <h5 class="product-title mb-0">
-                                        <a href="{{ route('theme.singel-product') }}" class="product-title-link">Juice
-                                            Drinks</a>
-                                    </h5>
-
-                                    <p class="product-p">Nature made another world</p>
-                                </div>
-
-                                <small class="product-price text-muted ms-auto mt-auto mb-5">$45</small>
-                            </div>
-                        </div>
-                    </div>
+                        @endforeach
+                    @endif
 
                     <div class="col-12 text-center">
                         <a href="{{ route('theme.product') }}" class="view-all">View All Products</a>

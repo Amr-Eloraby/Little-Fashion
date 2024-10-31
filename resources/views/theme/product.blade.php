@@ -32,7 +32,7 @@
                             <div class="col-lg-4 col-12 mb-3">
                                 <div class="product-thumb">
                                     <a href="product-detail.html">
-                                        <img style="width: 400px; height: 200px;"
+                                        <img style="width: 400px; height: 300px;"
                                             src="{{ asset("storage/products/$product->image") }}"
                                             class="img-fluid product-image" alt="">
                                     </a>
@@ -69,7 +69,7 @@
                                 <div class="col-lg-4 col-12 mb-3">
                                     <div class="product-thumb">
                                         <a href="product-detail.html">
-                                            <img style="width: 400px; height: 200px;"
+                                            <img style="width: 400px; height: 300px;"
                                                 src="{{ asset("storage/products/$product->image") }}"
                                                 class="img-fluid product-image" alt="">
                                         </a>

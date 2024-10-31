@@ -11,7 +11,8 @@ class ThemeController extends Controller
 {
     public function index()
     {
-        return view('theme.index');
+        $products=Product::latest()-> take(3)->get();
+        return view('theme.index',compact('products'));
     }
 
     public function story(){
@@ -19,7 +20,6 @@ class ThemeController extends Controller
     }
 
     public function product(){
-        // $category=Category::where('id',$id);
         $products=Product::latest()->paginate(9);
         return view('theme.product',compact('products'));
     }
