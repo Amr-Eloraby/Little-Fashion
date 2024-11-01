@@ -49,7 +49,7 @@ class ProductConteoller extends Controller
         $data['image']=$newImageName; // Add To Variable
         Product::create($data); // Record In dDatabase
 
-        return back()->with('status-product-create','Your Product Sent Successfully');
+        return redirect()->route('dashboard.product.show')->with('status-product-create','Your Product Sent Successfully');
     }
 
     /**
@@ -76,7 +76,7 @@ class ProductConteoller extends Controller
         }
         $product = Product::findOrFail($id);
         $product->update($data);
-        return to_route('dashboard.product.index')->with('status-product-update','Your Product Updated Successfully');
+        return redirect()->route('dashboard.product.show')->with('status-product-update','Your Product Updated Successfully');
     }
 
     /**
@@ -86,6 +86,6 @@ class ProductConteoller extends Controller
     {
         $product = Product::findOrFail($id);
         $product->delete();
-        return to_route('dashboard.product.index')->with('status-product-delete','Your Product Deleted Successfully');
+        return redirect()->route('dashboard.product.show')->with('status-product-delete','Your Product Deleted Successfully');
     }
 }
