@@ -12,13 +12,14 @@
     <title>Login</title>
 
     <!-- Custom fonts for this template-->
-    <link href="{{asset('assets-dashboard')}}/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets-dashboard') }}/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
+        type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="{{asset('assets-dashboard')}}/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="{{ asset('assets-dashboard') }}/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
 
@@ -41,7 +42,7 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
-                                    <form action="{{route('dashboard.store')}}" method="POST" class="user">
+                                    <form action="{{ route('admin.store') }}" method="POST" class="user">
                                         @csrf
                                         <div class="form-group">
                                             @error('email')
@@ -49,14 +50,21 @@
                                             @enderror
                                             <input type="email" class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address..." value="{{old('email')}}" name="email">
+                                                placeholder="Enter Email Address..." value="{{ old('email') }}"
+                                                name="email">
                                         </div>
                                         <div class="form-group">
+                                            @if (session('message-login'))
+                                                <div class="alert alert-danger">
+                                                    {{ session('message-login') }}
+                                                </div>
+                                            @endif
                                             @error('password')
                                                 <span class="alert alert-danger">{{ $message }}</span>
                                             @enderror
-                                            <input type="password" name="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password">
+                                            <input type="password" name="password"
+                                                class="form-control form-control-user" id="exampleInputPassword"
+                                                placeholder="Password">
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -65,7 +73,7 @@
                                                     Me</label>
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-primary btn-user btn-block" >Login</button>
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
                                     </form>
                                 </div>
                             </div>
@@ -80,14 +88,14 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="{{asset('assets-dashboard')}}/vendor/jquery/jquery.min.js"></script>
-    <script src="{{asset('assets-dashboard')}}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('assets-dashboard') }}/vendor/jquery/jquery.min.js"></script>
+    <script src="{{ asset('assets-dashboard') }}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="{{asset('assets-dashboard')}}/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="{{ asset('assets-dashboard') }}/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="{{asset('assets-dashboard')}}/js/sb-admin-2.min.js"></script>
+    <script src="{{ asset('assets-dashboard') }}/js/sb-admin-2.min.js"></script>
 
 </body>
 

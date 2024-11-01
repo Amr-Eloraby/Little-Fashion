@@ -26,7 +26,7 @@ Route::controller(ThemeController::class)->name('theme.')->group(function () {
     Route::get('/sign-up', 'signUp')->name('sign-up');
 });
 
-Route::controller(DashboardController::class)->prefix('/admin')->name('dashboard.')->group(function () {
+Route::controller(DashboardController::class)->prefix('/admin')->ma()->name('dashboard.')->group(function () {
     Route::get('/', 'index')->name('index');
     // -----------------------------------   Product   ------------------------------------------
     Route::resource('product', ProductConteoller::class)->except('show');
@@ -48,4 +48,5 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+require __DIR__.'/admin.php';
 require __DIR__.'/auth.php';
