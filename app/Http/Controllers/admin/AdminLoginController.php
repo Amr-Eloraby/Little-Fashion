@@ -2,15 +2,20 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
+use App\Http\Requests\Auth\LoginRequest;
 
 class AdminLoginController extends Controller
 {
     public function index(){
-        return view('dashboard.login');
+        if(Auth::guard('admin')->check()){
+            return to_route('dashboard.index');
+        }else{
+            return view('dashboard.login');
+        }
     }
 
     public function store(LoginRequest $request){
@@ -20,5 +25,16 @@ class AdminLoginController extends Controller
         }else{
             return back()->with('message-login','This account is not verified.');
         }
+    }
+
+    public function destroy(Request $request): RedirectResponse
+    {
+        Auth::guard('admin')->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect()->route('admin.index');
     }
 }

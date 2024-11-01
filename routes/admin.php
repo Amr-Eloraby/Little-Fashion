@@ -9,6 +9,6 @@ Route::controller(AdminLoginController::class)->prefix('/admin')->name('admin.')
 
     Route::get('/login','index')->name('index');
     Route::post('/login/store','store')->name('store');
+    Route::post('/logout','destroy')->name('logout');
 
 });
-
