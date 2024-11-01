@@ -14,16 +14,24 @@ class CategoryConteoller extends Controller
      */
     public function index()
     {
+        if(Auth::guard('admin')->check()){
         $categories = Category::paginate(4);
         return view('dashboard.category.show',compact('categories'));
+        }else{
+            return to_route('admin.index');
+        }
     }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
-    {
+    {   
+        if(Auth::guard('admin')->check()){
         return view('dashboard.category.create');
+        }else{
+            return to_route('admin.index');
+        }
     }
 
     /**

@@ -23,13 +23,13 @@ Route::controller(ThemeController::class)->name('theme.')->group(function () {
     Route::post('/contact/store', 'contactStore')->name('contact.store');
     // ===============================================================
     Route::get('/sign-in', 'signIn')->name('sign-in');
-    Route::get('/sign-up', 'signUp')->name('sign-up');
 });
 
 Route::controller(DashboardController::class)->prefix('/admin')->name('dashboard.')->group(function () {
     Route::get('/', 'index')->name('index');
     // -----------------------------------   Product   ------------------------------------------
-    Route::resource('product', ProductConteoller::class)->except('show');
+    Route::resource('product', ProductConteoller::class)->except(['index','show']);
+    Route::get('/product/show',[ProductConteoller::class,'showProducts'])->name('product.show');
     // -----------------------------------   Category   ------------------------------------------
     Route::resource('category', CategoryConteoller::class)->except('show');
     // -----------------------------------   Contact    ------------------------------------------

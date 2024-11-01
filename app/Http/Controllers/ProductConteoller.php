@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\EditProductRequest;
 use App\Http\Requests\StoreProductRequest;
 
@@ -13,19 +14,27 @@ class ProductConteoller extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function showProducts()
     {
+        if(Auth::guard('admin')->check()){
         $products=Product::paginate(10);
         return view('dashboard.products.show',compact('products'));
+        }else{
+            return to_route('admin.index');
+        }
     }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
-    {
+    {   
+        if(Auth::guard('admin')->check()){
         $categories=Category::get();
         return view('dashboard.products.create',compact('categories'));
+        }else{
+            return to_route('admin.index');
+        }
     }
 
     /**

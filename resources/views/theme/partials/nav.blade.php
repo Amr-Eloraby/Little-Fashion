@@ -29,14 +29,16 @@
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle @yield('product-active')" href="{{ route('theme.product') }}" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
+                    <a class="nav-link dropdown-toggle @yield('product-active')" href="{{ route('theme.product') }}"
+                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Products
                     </a>
                     <ul class="dropdown-menu">
                         @if (count($categories) > 0)
-                            @foreach ($categories as $category )
-                            <li><a class="dropdown-item" href="{{ route('theme.product',['id' => $category->id]) }}">{{$category->name}}</a></li>
+                            @foreach ($categories as $category)
+                                <li><a class="dropdown-item"
+                                        href="{{ route('theme.product', ['id' => $category->id]) }}">{{ $category->name }}</a>
+                                </li>
                             @endforeach
                         @endif
                     </ul>
@@ -52,10 +54,15 @@
             </ul>
 
             <div class="d-none d-lg-block">
-                <a href="{{ route('theme.sign-in') }}" class="bi-person custom-icon me-3"></a>
-
-                <a href="{{ route('theme.singel-product') }}" class="bi-bag custom-icon"></a>
+                @if (!Auth::check())
+                    <a href="{{ route('login') }}" class="bi-person custom-icon me-3"></a>
+                @else
+                    <a href="{{ route('theme.sign-in') }}"
+                        class="bi-person custom-icon me-3">{{ Auth::user()->name }}</a>
             </div>
+            @endif
+            <a href="{{ route('theme.singel-product') }}" class="bi-bag custom-icon"></a>
         </div>
+    </div>
     </div>
 </nav>

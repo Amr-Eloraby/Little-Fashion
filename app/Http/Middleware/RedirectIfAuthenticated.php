@@ -21,6 +21,9 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
+                if($guard=='admin'){
+                    return to_route('dashboard.index');
+                }
                 return to_route('theme.index');
             }
         }

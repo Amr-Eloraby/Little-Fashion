@@ -38,27 +38,31 @@
 
                         <div class="row">
                             <div class="col-lg-8 col-11 mx-auto">
-                                <form role="form" method="post">
-
+                                <form action="{{route('login')}}" role="form" method="post">
+                                    @csrf
                                     <div class="form-floating mb-4 p-0">
                                         <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*"
                                             class="form-control" placeholder="Email address" required>
-
                                         <label for="email">Email address</label>
+                                        @error('email')
+                                            <span class="text-danger">{{$message}}</span>
+                                        @enderror
                                     </div>
 
                                     <div class="form-floating p-0">
                                         <input type="password" name="password" id="password" class="form-control"
                                             placeholder="Password" required>
-
                                         <label for="password">Password</label>
+                                        @error('password')
+                                            <span class="text-danger">{{$message}}</span>
+                                        @enderror
                                     </div>
 
                                     <button type="submit" class="btn custom-btn form-control mt-4 mb-3">
                                         Sign in
                                     </button>
 
-                                    <p class="text-center">Don’t have an account? <a href="{{route('theme.sign-up')}}">Create One</a>
+                                    <p class="text-center">Don’t have an account? <a href="{{route('register')}}">Create One</a>
                                     </p>
 
                                 </form>

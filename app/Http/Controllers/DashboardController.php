@@ -25,8 +25,12 @@ class DashboardController extends Controller
     }    
 
     public function contactShow(){
+        if(Auth::guard('admin')->check()){
         $contacts=Contact::paginate(8);
         return view('dashboard.contacts.show',compact('contacts'));
+        }else{
+            return to_route('admin.index');
+        }
     }
 
 
