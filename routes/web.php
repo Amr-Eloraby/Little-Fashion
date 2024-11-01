@@ -8,12 +8,12 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryConteoller;
 use App\Http\Controllers\DashboardController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::controller(ThemeController::class)->name('theme.')->group(function () {
-    Route::get('/home', 'index')->name('index');
+    Route::get('/', 'index')->name('index');
     Route::get('/story', 'story')->name('story');
     Route::get('/product', 'product')->name('product');
     Route::get('/singel-product', 'singelProduct')->name('singel-product');
@@ -35,17 +35,6 @@ Route::controller(DashboardController::class)->prefix('/admin')->name('dashboard
     // -----------------------------------   Contact    ------------------------------------------
     Route::get('/contact/show', 'contactShow')->name('contact.show');
 
-});
-
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 require __DIR__.'/admin.php';

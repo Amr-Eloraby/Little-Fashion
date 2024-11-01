@@ -59,6 +59,16 @@
                 @else
                     <a href="{{ route('theme.sign-in') }}"
                         class="bi-person custom-icon me-3">{{ Auth::user()->name }}</a>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <x-responsive-nav-link :href="route('logout')"
+                                onclick="event.preventDefault();
+                                    this.closest('form').submit();"
+                                class="dropdown-item">
+                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                {{ __('Log Out') }}
+                            </x-responsive-nav-link>
+                        </form>
             </div>
             @endif
             <a href="{{ route('theme.singel-product') }}" class="bi-bag custom-icon"></a>
