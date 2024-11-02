@@ -16,6 +16,9 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): View
     {
+        if (Auth::user()) {
+            return to_route('theme.index');
+        }
         return view('theme.sign-in');
     }
 

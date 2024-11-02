@@ -83,7 +83,7 @@
                                     </button>
 
                                     <p class="text-center">Already have an account? Please <a
-                                            href="{{ route('theme.sign-in') }}">Sign
+                                            href="{{ route('login') }}">Sign
                                             In</a></p>
 
                                 </form>

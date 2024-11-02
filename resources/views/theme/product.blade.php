@@ -31,7 +31,7 @@
                         @foreach ($products as $product)
                             <div class="col-lg-4 col-12 mb-3">
                                 <div class="product-thumb">
-                                    <a href="product-detail.html">
+                                    <a href="{{route('theme.singel-product')}}">
                                         <img style="width: 400px; height: 300px;"
                                             src="{{ asset("storage/products/$product->image") }}"
                                             class="img-fluid product-image" alt="">
@@ -44,7 +44,7 @@
                                     <div class="product-info d-flex">
                                         <div>
                                             <h5 class="product-title mb-0">
-                                                <a href="product-detail.html"
+                                                <a href="{{route('theme.singel-product')}}"
                                                     class="product-title-link">{{ $product->name }}</a>
                                             </h5>
 
@@ -68,7 +68,7 @@
                             @if ($product->category_id == $product->category->id)
                                 <div class="col-lg-4 col-12 mb-3">
                                     <div class="product-thumb">
-                                        <a href="product-detail.html">
+                                        <a href="{{route('theme.singel-product')}}">
                                             <img style="width: 400px; height: 300px;"
                                                 src="{{ asset("storage/products/$product->image") }}"
                                                 class="img-fluid product-image" alt="">
@@ -76,7 +76,7 @@
                                         <div class="product-info d-flex">
                                             <div>
                                                 <h5 class="product-title mb-0">
-                                                    <a href="product-detail.html"
+                                                    <a href="{{route('theme.singel-product')}}"
                                                         class="product-title-link">{{ $product->name }}</a>
                                                 </h5>
 

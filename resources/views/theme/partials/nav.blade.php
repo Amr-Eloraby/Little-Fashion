@@ -57,7 +57,7 @@
                 @if (!Auth::check())
                     <a href="{{ route('login') }}" class="bi-person custom-icon me-3"></a>
                 @else
-                    <a href="{{ route('theme.sign-in') }}"
+                    <a href="#"
                         class="bi-person custom-icon me-3">{{ Auth::user()->name }}</a>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -71,7 +71,7 @@
                         </form>
             </div>
             @endif
-            <a href="{{ route('theme.singel-product') }}" class="bi-bag custom-icon"></a>
+            {{-- <a href="{{ route('theme.singel-product') }}" class="bi-bag custom-icon"></a> --}}
         </div>
     </div>
     </div>
