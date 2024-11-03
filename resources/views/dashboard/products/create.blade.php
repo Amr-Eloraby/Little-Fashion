@@ -42,6 +42,7 @@
                             @enderror
                     </div>
                 </div>
+                <div class="move col-sm-12">
                 <div class="form-group row mb-3">
                     <select class="form-control border col-sm-10" name="category_id">
                         <option value="">Select Category</option>
@@ -54,6 +55,7 @@
                     @error('category_id')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
+                </div>
                 </div>
                 <div class="row mb-3">
                     <label class="col-sm-2 col-form-label" for="basic-default-name">price</label>
