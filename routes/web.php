@@ -15,7 +15,7 @@ use App\Http\Controllers\DashboardController;
 Route::controller(ThemeController::class)->name('theme.')->group(function () {
     Route::get('/', 'index')->name('index');
     Route::get('/story', 'story')->name('story');
-    Route::get('/product/{id}', 'product')->name('product');
+    Route::get('/product', 'product')->name('product');
     Route::get('/singel-product', 'singelProduct')->name('singel-product');
     Route::get('/faqs', 'faqs')->name('faqs');
     // ===================== contact =================================

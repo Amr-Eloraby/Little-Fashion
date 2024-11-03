@@ -37,7 +37,7 @@
                         @if (count($categories) > 0)
                             @foreach ($categories as $category)
                                 <li><a class="dropdown-item"
-                                        href="{{ route('theme.product', ['id' => $category->id]) }}">{{ $category->name }}</a>
+                                        href="{{ route('theme.product') }}">{{ $category->name }}</a>
                                 </li>
                             @endforeach
                         @endif
