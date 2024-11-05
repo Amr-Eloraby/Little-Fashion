@@ -55,21 +55,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
                         <a class="collapse-item" href="{{ route('dashboard.product.create') }}">Create</a>
-                        <a class="collapse-item" href="{{ route('dashboard.product.show') }}}">Show</a>
-                    </div>
-                </div>
-            </li>
-            {{-- Story --}}
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsetwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <span>Story</span>
-                </a>
-                <div id="collapsetwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Create</a>
-                        <a class="collapse-item" href="cards.html">Show</a>
+                        <a class="collapse-item" href="{{ route('dashboard.product.show') }}">Show</a>
                     </div>
                 </div>
             </li>

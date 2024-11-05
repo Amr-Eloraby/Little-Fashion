@@ -19,13 +19,24 @@ class ThemeController extends Controller
         return view('theme.story');
     }
 
-    public function product(){
-        $products=Product::latest()->paginate(9);
+    public function product($id){
+        $products=Product::where('category_id',$id)->latest()->paginate(9);
         return view('theme.product',compact('products'));
     }
 
-    public function singelProduct(){
-        return view('theme.singel-product');
+    public function singelProduct($id){
+        $product=Product::find($id);
+        return view('theme.singel-product',compact('product'));
+    }
+
+    public function payment(Request $request){
+        $data=$request->validate([
+            'card-name'=>'required',
+            'card-number'=>'required',
+            'expiration'=>'required',
+            'cvv'=>'required',
+        ]);
+        return back()->with('payment','Payment has been completed successfully.');
     }
 
     public function faqs(){

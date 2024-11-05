@@ -15,7 +15,7 @@
                 <ul class="footer-menu d-flex flex-wrap">
                     <li class="footer-menu-item"><a href="{{route('theme.story')}}" class="footer-menu-link">Story</a></li>
 
-                    <li class="footer-menu-item"><a href="{{route('theme.product')}}" class="footer-menu-link">Products</a></li>
+                    <li class="footer-menu-item"><a href="#" class="footer-menu-link">Products</a></li>
 
                     <li class="footer-menu-item"><a href="{{route('theme.faqs')}}" class="footer-menu-link">FAQs</a></li>
 

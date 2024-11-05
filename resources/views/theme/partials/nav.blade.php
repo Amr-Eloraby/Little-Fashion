@@ -29,7 +29,7 @@
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle @yield('product-active')" href="{{ route('theme.product') }}"
+                    <a class="nav-link dropdown-toggle @yield('product-active')" href="#"
                         role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Products
                     </a>
@@ -37,7 +37,7 @@
                         @if (count($categories) > 0)
                             @foreach ($categories as $category)
                                 <li><a class="dropdown-item"
-                                        href="{{ route('theme.product') }}">{{ $category->name }}</a>
+                                        href="{{ route('theme.product',['id'=>$category->id]) }}">{{ $category->name }}</a>
                                 </li>
                             @endforeach
                         @endif

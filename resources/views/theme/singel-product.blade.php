@@ -22,7 +22,7 @@
 
                     <div class="col-lg-6 col-12">
                         <div class="product-thumb">
-                            <img src="{{asset('assets')}}/images/product/evan-mcdougall-qnh1odlqOmk-unsplash.jpeg"
+                            <img style="width: 600px; height: 600px;" src="{{ asset("storage/products/$product->image") }}"
                                 class="img-fluid product-image" alt="">
                         </div>
                     </div>
@@ -30,23 +30,25 @@
                     <div class="col-lg-6 col-12">
                         <div class="product-info d-flex">
                             <div>
-                                <h2 class="product-title mb-0">Tree pot</h2>
-
-                                <p class="product-p">Original package design from house</p>
+                                <h2 class="product-title mb-0">{{ $product->name }}</h2>
                             </div>
 
-                            <small class="product-price text-muted ms-auto mt-auto mb-5">$25</small>
+                            <small class="product-price text-muted ms-auto mt-auto mb-5">${{ $product->price }}</small>
                         </div>
 
                         <div class="product-description">
 
                             <strong class="d-block mt-4 mb-2">Description</strong>
 
-                            <p class="lead mb-5">Over three years in business, We’ve had the chance to work on a variety of
-                                projects, with companies</p>
+                            <p class="lead mb-5">{{ $product->description }}</p>
                         </div>
 
                         <div class="product-cart-thumb row">
+                            @if (session('payment'))
+                                <div class="alert alert-success">
+                                    {{ session('payment') }}
+                                </div>
+                            @endif
                             <div class="col-lg-6 col-12">
 
                                 <select class="form-select cart-form-select" id="inputGroupSelect01">
@@ -63,12 +65,49 @@
                                 <button type="submit" class="btn custom-btn cart-btn" data-bs-toggle="modal"
                                     data-bs-target="#cart-modal">Add to Cart</button>
                             </div>
+                            <form action="{{ route('theme.payment') }}" method="POST" class="contact-form me-lg-5 pe-lg-3"
+                                role="form">
+                                @csrf
+                                <div class="form-floating">
+                                    <input type="text" name="card-name" id="card-name" class="form-control">
+                                    @error('card-name')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                    <label for="card-name">Name on card</label>
+                                </div>
 
-                            <p>
-                                <a href="#" class="product-additional-link">Details</a>
-
-                                <a href="#" class="product-additional-link">Delivery and Payment</a>
-                            </p>
+                                <div class="form-floating my-4">
+                                    <input type="text" name="card-number" id="card-number" class="form-control">
+                                    @error('card-number')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                    <label for="card-number">Credit card number</label>
+                                </div>
+                                <div class="row mb-4">
+                                    <div class="form-floating my-6 col-3">
+                                        <input type="text" name="expiration" id="expiration" class="form-control">
+                                        @error('expiration')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                        <label for="expiration">Expiration</label>
+                                    </div>
+                                    <div class="form-floating my-6 col-3">
+                                        <input type="text" name="cvv" id="cvv" class="form-control">
+                                        @error('cvv')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                        <label for="cvv">CVV</label>
+                                    </div>
+                                </div>
+                                @if (Auth::check())
+                                    <div class="col-lg-5 col-6">
+                                        <button type="submit" class="form-control">Send</button>
+                                    </div>
+                                @else
+                                    <div class="alert alert-danger mt-2">
+                                        You must log in to complete the process. </div>
+                                @endif
+                            </form>
                         </div>
 
                     </div>
@@ -77,7 +116,7 @@
             </div>
         </section>
 
-        <section class="related-product section-padding border-top">
+        {{-- <section class="related-product section-padding border-top">
             <div class="container">
                 <div class="row">
 
@@ -166,7 +205,7 @@
 
                 </div>
             </div>
-        </section>
+        </section> --}}
 
     </main>
 @endsection

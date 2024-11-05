@@ -37,7 +37,7 @@
                                 <p class="lead text-white mt-lg-3 mb-lg-5">Please share this Little Fashion template to your
                                     friends. Thank you for supporting us.</p>
 
-                                <a href="{{route('theme.product')}}" class="btn custom-btn">Explore products</a>
+                                <a href="#" class="btn custom-btn">Explore products</a>
                             </div>
                         </div>
                     </div>
@@ -179,7 +179,7 @@
                             <p class="lead mb-4">Credits go to Unsplash and FreePik websites for images used in this Little
                                 Fashion by Tooplate.</p>
 
-                            <a href="{{route('theme.product')}}" class="custom-link">
+                            <a href="#" class="custom-link">
                                 Explore Products
                                 <i class="bi-arrow-right ms-2"></i>
                             </a>
@@ -202,7 +202,7 @@
                         @foreach ($products as $product )
                         <div class="col-lg-4 col-12 mb-3">
                             <div class="product-thumb">
-                                <a href="{{ route('theme.singel-product') }}">
+                                <a href="{{ route('theme.singel-product',['id'=>$product->id]) }}">
                                     <img style="width: 400px; height: 300px;"
                                             src="{{ asset("storage/products/$product->image") }}"
                                             class="img-fluid product-image" alt="">
@@ -210,7 +210,7 @@
                                  <div class="product-info d-flex">
                                     <div>
                                         <h5 class="product-title mb-0">
-                                            <a href="{{ route('theme.singel-product') }}" class="product-title-link">{{$product->name}}</a>
+                                            <a href="{{ route('theme.singel-product',['id'=>$product->id]) }}" class="product-title-link">{{$product->name}}</a>
                                         </h5>
     
                                         <p class="product-p">{{$product->description}}</p>
@@ -224,7 +224,7 @@
                     @endif
 
                     <div class="col-12 text-center">
-                        <a href="{{ route('theme.product') }}" class="view-all">View All Products</a>
+                        <a href="#" class="view-all">View All Products</a>
                     </div>
 
                 </div>
